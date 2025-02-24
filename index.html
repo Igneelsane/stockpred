@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STOCKPRED - Indian Stock Market Predictions</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">
+                <i class="fas fa-chart-line"></i>
+                STOCKPRED
+            </a>
+            <div class="nav-controls">
+                <div class="search-container">
+                    <div class="search-input-container">
+                        <input type="text" id="searchStock" placeholder="Search stocks (e.g., TCS, RELIANCE)..." autocomplete="off">
+                        <div id="searchResults" class="search-results"></div>
+                    </div>
+                    <button id="searchBtn">
+                        <i class="fas fa-search"></i>
+                        Search
+                    </button>
+                </div>
+                <button id="themeToggle" class="theme-toggle">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="market-overview">
+            <h2><i class="fas fa-globe"></i> Market Overview</h2>
+            <div class="indices">
+                <div class="index-card" id="nifty">
+                    <h3><i class="fas fa-chart-bar"></i> NIFTY 50</h3>
+                    <p class="price loading">Loading...</p>
+                    <p class="change loading">Loading...</p>
+                </div>
+                <div class="index-card" id="sensex">
+                    <h3><i class="fas fa-chart-line"></i> SENSEX</h3>
+                    <p class="price loading">Loading...</p>
+                    <p class="change loading">Loading...</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="stock-details hidden">
+            <h2><i class="fas fa-info-circle"></i> Stock Details</h2>
+            <div class="stock-info">
+                <div id="stockHeader"></div>
+                <div id="stockPrice"></div>
+                <div class="prediction-controls">
+                    <h3>Prediction Method:</h3>
+                    <div class="prediction-selector">
+                        <select id="predictionMethod">
+                            <option value="" disabled selected>Choose Your Prediction Model</option>
+                            <option value="sma">Simple Moving Average</option>
+                            <option value="ema">Exponential Moving Average</option>
+                            <option value="rsi">Relative Strength Index (RSI)</option>
+                            <option value="macd">MACD</option>
+                        </select>
+                        <div class="method-description" id="methodDescription"></div>
+                    </div>
+                    <button id="updatePrediction">
+                        <i class="fas fa-sync"></i> Update Prediction
+                    </button>
+                </div>
+                <div id="stockChart">
+                    <canvas id="priceChart"></canvas>
+                </div>
+                <div id="prediction" class="prediction"></div>
+            </div>
+        </section>
+
+        <section class="market-movers">
+            <div class="gainers">
+                <h3><i class="fas fa-arrow-up"></i> Top Gainers</h3>
+                <div id="topGainers" class="movers-list"></div>
+            </div>
+            <div class="losers">
+                <h3><i class="fas fa-arrow-down"></i> Top Losers</h3>
+                <div id="topLosers" class="movers-list"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Data provided by Alpha Vantage | <i class="far fa-clock"></i> Auto-updates every 5 minutes</p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STOCKPRED - Market Movers</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">
+                <i class="fas fa-chart-line"></i>
+                STOCKPRED
+            </a>
+            <div class="nav-controls">
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="movers.html" class="active">Market Movers</a>
+                </div>
+                <button id="themeToggle" class="theme-toggle">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="movers-header">
+            <h1>Market Movers</h1>
+            <div class="time-period-selector">
+                <button class="period-btn active" data-period="1d">1 Day</button>
+                <button class="period-btn" data-period="1w">1 Week</button>
+                <button class="period-btn" data-period="1m">1 Month</button>
+            </div>
+        </section>
+
+        <div class="movers-container">
+            <section class="top-gainers">
+                <h2><i class="fas fa-arrow-up"></i> Top Gainers</h2>
+                <div class="movers-grid" id="gainersGrid">
+                    <div class="loading-spinner">Loading...</div>
+                </div>
+            </section>
+
+            <section class="top-losers">
+                <h2><i class="fas fa-arrow-down"></i> Top Losers</h2>
+                <div class="movers-grid" id="losersGrid">
+                    <div class="loading-spinner">Loading...</div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>Data provided by Alpha Vantage | <i class="far fa-clock"></i> Auto-updates every 5 minutes</p>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/movers.js"></script>
+</body>
+</html> 
