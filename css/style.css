@@ -617,6 +617,23 @@ footer {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
+    background: var(--card-background);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.movers-header h1 {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-color);
+}
+
+.movers-header h1 i {
+    color: var(--accent-color);
+    font-size: 1.8rem;
 }
 
 .time-period-selector {
@@ -625,26 +642,29 @@ footer {
     background-color: var(--card-background);
     padding: 0.5rem;
     border-radius: 8px;
-    box-shadow: var(--shadow);
+    border: 2px solid var(--accent-color);
 }
 
 .period-btn {
     background: none;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.5rem;
     border-radius: 6px;
     color: var(--text-color);
     cursor: pointer;
     transition: var(--transition);
+    font-weight: 500;
+    font-size: 0.95rem;
 }
 
 .period-btn:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(52, 152, 219, 0.1);
 }
 
 .period-btn.active {
     background-color: var(--accent-color);
     color: white;
+    box-shadow: 0 2px 4px rgba(52, 152, 219, 0.2);
 }
 
 .movers-container {
@@ -653,50 +673,85 @@ footer {
     gap: 2rem;
 }
 
+.top-gainers, .top-losers {
+    background: var(--card-background);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.top-gainers h2, .top-losers h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.top-gainers h2 i {
+    color: var(--success-color);
+}
+
+.top-losers h2 i {
+    color: var(--danger-color);
+}
+
 .movers-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1rem;
+    padding: 0.5rem;
 }
 
 .stock-card {
     background-color: var(--card-background);
     border-radius: 10px;
     padding: 1rem;
-    box-shadow: var(--shadow);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: var(--transition);
 }
 
 .stock-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent-color);
 }
 
 .stock-card-header h3 {
     font-size: 1.2rem;
     margin-bottom: 0.25rem;
+    color: var(--accent-color);
 }
 
 .stock-name {
     color: var(--text-light);
     font-size: 0.9rem;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .stock-card-body {
     margin: 1rem 0;
+    padding: 0.5rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .price {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
+    color: var(--text-color);
 }
 
 .change {
     display: flex;
     gap: 0.5rem;
     font-weight: 500;
+    font-size: 0.95rem;
 }
 
 .stock-card-footer {
@@ -704,6 +759,34 @@ footer {
     justify-content: space-between;
     color: var(--text-light);
     font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    grid-column: 1 / -1;
+}
+
+.loading-spinner::after {
+    content: '';
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 3px solid var(--accent-color);
+    border-right-color: transparent;
+    border-radius: 50%;
+    margin-left: 1rem;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @media (max-width: 1024px) {
